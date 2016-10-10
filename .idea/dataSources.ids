@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ordersDB@localhost" uuid="39051302-3e2c-49ca-814a-d87adbba515d">
+    <database-info product="MySQL" version="5.7.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="ordersdb"/>
+      <table id="2" parent="1" name="pricelist"/>
+      <table id="3" parent="1" name="order"/>
+      <column id="4" parent="2" name="priceListId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="5" parent="2" name="description">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="6" parent="2" name="priceList_priceListId_uindex">
+        <columns>priceListId</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="7" parent="2" name="priceList_priceListId_uindex">
+        <columns>priceListId</columns>
+        <underlying-index>priceList_priceListId_uindex</underlying-index>
+      </key>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>priceListId</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="10" parent="3" name="code">
+        <mandatory>1</mandatory>
+        <data-type>bigint(20)</data-type>
+      </column>
+      <column id="11" parent="3" name="label">
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="12" parent="3" name="page">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="13" parent="3" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="14" parent="3" name="bonusPoint">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="3" name="salesVolume">
+        <data-type>double</data-type>
+      </column>
+      <column id="16" parent="3" name="distributionPrice">
+        <data-type>double</data-type>
+      </column>
+      <column id="17" parent="3" name="purchasingPrice">
+        <data-type>double</data-type>
+      </column>
+      <column id="18" parent="3" name="priceListId">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="19" parent="3" name="order_priceList_fk">
+        <columns>priceListId</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="20" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="21" parent="3" name="order_priceList_fk">
+        <columns>priceListId</columns>
+        <ref-key>~.pricelist.priceList_priceListId_uindex</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
