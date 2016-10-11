@@ -5,6 +5,7 @@ import com.vitja.DAO.PriceListDAO;
 import com.vitja.Logger;
 import com.vitja.model.Order;
 import com.vitja.model.PriceList;
+import com.vitja.repository.OrderRepository;
 import com.vitja.repository.PriceListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,25 +19,28 @@ import java.util.Set;
 @Service
 @Transactional
 public class PriceListService {
-    @Autowired
-    private PriceListDAO priceListDAO;
+    /*@Autowired
+    private PriceListDAO priceListDAO;*/
 
     @Autowired
     private PriceListRepository priceListRepository;
 
     @Autowired
-    private OrderDAO orderDAO;
+    private OrderRepository orderRepository;
+
+    /*@Autowired
+    private OrderDAO orderDAO;*/
 
     @Transactional
     public void savePriceList(PriceList priceList){
-        priceListDAO.save(priceList);
+        priceListRepository.save(priceList);
         Logger.LOGGER.info("Price List '" + priceList.getDescription() + "' saved...");
     }
 
     @Transactional
     public void savePriceListAndOrders(PriceList priceList, Set<Order> orders){
-        priceListDAO.save(priceList);
-        orderDAO.save(orders);
+        priceListRepository.save(priceList);
+        orderRepository.save(orders);
         Logger.LOGGER.info("Price List '" + priceList.getDescription() + "' and orders saved...");
     }
 

@@ -38,11 +38,12 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean id="orderDAO" class="com.vitja.DAO.OrderDAOImpl"/>
-
     <bean id="orderService" class="com.vitja.service.OrderService"/>
 
+    <!--
+    <bean id="orderDAO" class="com.vitja.DAO.OrderDAOImpl"/>
     <bean id="priceListDAO" class="com.vitja.DAO.PriceListDAOImpl"/>
+    -->
 
     <bean id="priceListService" class="com.vitja.service.PriceListService"/>
 

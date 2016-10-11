@@ -1,3 +1,4 @@
+/*
 package com.vitja.DAO;
 
 import com.vitja.model.Order;
@@ -9,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
+*/
 /**
  * Created by Viktor on 10.10.2016.
- */
+ *//*
+
 public class OrderDAOImpl implements OrderDAO {
     @Autowired
     private SessionFactory sessionFactory;
@@ -33,3 +36,4 @@ public class OrderDAOImpl implements OrderDAO {
         return null;
     }
 }
+*/

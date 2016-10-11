@@ -15,21 +15,21 @@ import java.util.Set;
  */
 @Transactional
 public class OrderService {
-    @Autowired
-    private OrderDAO orderDAO;
+    /*@Autowired
+    private OrderDAO orderDAO;*/
 
     @Autowired
     private OrderRepository orderRepository;
 
     @Transactional
     public void saveOrder(Order order){
-        orderDAO.save(order);
+        orderRepository.save(order);
         Logger.LOGGER.info("Order " + order.getCode() + " - " + order.getName() + " saved...");
     }
 
     @Transactional
     public void saveOrders(Set<Order> orders){
-        orderDAO.save(orders);
+        orderRepository.save(orders);
         Logger.LOGGER.info("Set of orders saved...");
     }
 
