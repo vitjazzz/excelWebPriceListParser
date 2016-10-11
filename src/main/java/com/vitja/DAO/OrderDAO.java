@@ -1,6 +1,7 @@
 package com.vitja.DAO;
 
 import com.vitja.model.Order;
+import com.vitja.model.PriceList;
 
 import java.util.Set;
 
@@ -11,4 +12,6 @@ public interface OrderDAO {
     void save(Order order);
 
     void save(Set<Order> orders);
+
+    Order getOrderByCodeAndPriceList(Integer code, PriceList priceList);
 }

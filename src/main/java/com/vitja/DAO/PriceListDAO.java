@@ -7,4 +7,6 @@ import com.vitja.model.PriceList;
  */
 public interface PriceListDAO {
     void save(PriceList priceList);
+
+    PriceList getPriceListByDescription(String description);
 }

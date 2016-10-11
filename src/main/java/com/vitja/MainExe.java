@@ -18,18 +18,27 @@ public class MainExe {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
-        File file = new File("src/main/resources/temp.xlsx");
+        /*File file = new File("src/main/resources/temp.xlsx");
 
         Set<Order> orders = new ExcelParser().parseFile(file);
 
         PriceList priceList = new PriceList("First price list");
 
-        orders.stream().forEach(order -> order.setPriceList(priceList));
+        orders.stream().forEach(order -> order.setPriceList(priceList));*/
 
         PriceListService priceListService = (PriceListService) context.getBean("priceListService");
+
+        PriceList priceList = priceListService.getPriceListByDescription("First price list");
+
+        Logger.LOGGER.info(priceList.getId() + "  " + priceList.getDescription());
+
         OrderService orderService = (OrderService) context.getBean("orderService");
 
-        priceListService.savePriceList(priceList);
+        Order order = orderService.getOrderByCodeAndPriceList(11367, priceList);
+
+        Logger.LOGGER.info(order.getCode() + "  " + order.getName());
+
+        //priceListService.savePriceListAndOrders(priceList, orders);
         //orderService.saveOrders(orders);
 
     }

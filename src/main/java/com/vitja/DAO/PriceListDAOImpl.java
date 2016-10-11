@@ -14,29 +14,12 @@ public class PriceListDAOImpl  implements PriceListDAO{
     private SessionFactory sessionFactory;
 
     @Override
+    public PriceList getPriceListByDescription(String description) {
+        return null;
+    }
+
+    @Override
     public void save(PriceList priceList) {
-        Session session = null;
-        try {
-            session = sessionFactory.openSession();
-
-            Transaction transaction = session.beginTransaction();
-
-            session.persist(priceList);
-
-            transaction.commit();
-        }catch (Exception e){
-
-            e.printStackTrace();
-
-        } finally {
-
-            if(session != null){
-                session.close();
-            }
-
-        }
-
-
-
+        sessionFactory.getCurrentSession().save(priceList);
     }
 }

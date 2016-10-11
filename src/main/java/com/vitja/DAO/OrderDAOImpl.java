@@ -1,6 +1,7 @@
 package com.vitja.DAO;
 
 import com.vitja.model.Order;
+import com.vitja.model.PriceList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,21 +16,20 @@ public class OrderDAOImpl implements OrderDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
     public void save(Set<Order> orders) {
-        Session session;
-
-        session = sessionFactory.openSession();
-
-        Transaction transaction = session.beginTransaction();
-
+        Session session = sessionFactory.getCurrentSession();
         orders.stream().forEach(order -> session.save(order));
-
-        transaction.commit();
-
-        session.close();
     }
 
+    @Override
     public void save(Order order) {
 
+    }
+
+    @Override
+    public Order getOrderByCodeAndPriceList(Integer code, PriceList priceList) {
+
+        return null;
     }
 }

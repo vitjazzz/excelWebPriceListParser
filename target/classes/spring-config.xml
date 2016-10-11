@@ -3,15 +3,40 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx.xsd
             http://www.springframework.org/schema/context
-            http://www.springframework.org/schema/context/spring-context.xsd">
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/data/jpa
+            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <context:annotation-config/>
     <context:component-scan base-package="com.vitja"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <jpa:repositories base-package="com.vitja.repository"/>
+
+    <bean id="hibernatePersistenceProvider" class="org.hibernate.jpa.HibernatePersistenceProvider"/>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+        <property name="persistenceProvider" ref="hibernatePersistenceProvider"/>
+        <property name="packagesToScan" value="com.vitja.model"/>
+        <property name="jpaProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQLDialect
+                hibernate.show_sql=true
+                current_session_context_class=thread
+                hibernate.enable_lazy_load_no_trans=true
+            </value>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
 
     <bean id="orderDAO" class="com.vitja.DAO.OrderDAOImpl"/>
 
@@ -28,7 +53,7 @@
         <property name="password" value="1997"/>
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
         <property name="packagesToScan" value="com.vitja.model"/>
         <property name="hibernateProperties">
@@ -38,12 +63,16 @@
                 current_session_context_class=thread
                 hibernate.enable_lazy_load_no_trans=true
             </value>
-            <!--<props>
+            &lt;!&ndash;<props>
                 <prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="show_sql">true</prop>
                 <prop key="current_session_context_class">thread</prop>
-            </props>-->
+            </props>&ndash;&gt;
         </property>
-    </bean>
+    </bean>-->
 
+    <!--<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+-->
 </beans>
