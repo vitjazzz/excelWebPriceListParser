@@ -21,7 +21,7 @@
     <bean id="hibernatePersistenceProvider" class="org.hibernate.jpa.HibernatePersistenceProvider"/>
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="datasource"/>
+        <property name="dataSource" ref="dataSource"/>
         <property name="persistenceProvider" ref="hibernatePersistenceProvider"/>
         <property name="packagesToScan" value="com.vitja.model"/>
         <property name="jpaProperties">
@@ -38,22 +38,19 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
 
-    <bean id="orderService" class="com.vitja.service.OrderService"/>
-
+    <!--<bean id="orderService" class="com.vitja.service.OrderService"/>
+    <bean id="priceListService" class="com.vitja.service.PriceListService"/>-->
     <!--
     <bean id="orderDAO" class="com.vitja.DAO.OrderDAOImpl"/>
     <bean id="priceListDAO" class="com.vitja.DAO.PriceListDAOImpl"/>
     -->
 
-    <bean id="priceListService" class="com.vitja.service.PriceListService"/>
-
-    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/ordersDB?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
         <property name="username" value="root"/>
         <property name="password" value="1997"/>
     </bean>
-
     <!--<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
         <property name="packagesToScan" value="com.vitja.model"/>

@@ -1,7 +1,5 @@
 package com.vitja.service;
 
-import com.vitja.DAO.OrderDAO;
-import com.vitja.DAO.PriceListDAO;
 import com.vitja.Logger;
 import com.vitja.model.Order;
 import com.vitja.model.PriceList;

@@ -1,5 +1,7 @@
+/*
 package com.vitja;
 
+import com.vitja.controller.MainController;
 import com.vitja.model.Order;
 import com.vitja.model.PriceList;
 import com.vitja.service.OrderService;
@@ -11,29 +13,36 @@ import java.io.File;
 import java.util.List;
 import java.util.Set;
 
+*/
 /**
  * Created by Viktor on 09.10.2016.
- */
+ *//*
+
 public class MainExe {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        //ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
-        /*File file = new File("src/main/resources/temp.xlsx");
+        */
+/*File file = new File("src/main/resources/temp.xlsx");
 
         Set<Order> orders = new ExcelParser().parseFile(file);
 
         PriceList priceList = new PriceList("First price list");
 
-        orders.stream().forEach(order -> order.setPriceList(priceList));*/
+        orders.stream().forEach(order -> order.setPriceList(priceList));*//*
 
-        PriceListService priceListService = (PriceListService) context.getBean("priceListService");
 
+        //PriceListService priceListService = (PriceListService) context.getBean("priceListService");
+
+        MainController mainController = new MainController();
+        PriceListService priceListService = mainController.priceListService;
         PriceList priceList = priceListService.getPriceListByDescription("First price list");
 
         Logger.LOGGER.info(priceList.getId() + "  " + priceList.getDescription());
 
-        OrderService orderService = (OrderService) context.getBean("orderService");
+        //OrderService orderService = (OrderService) context.getBean("orderService");
 
+        OrderService orderService = mainController.orderService;
         Order order = orderService.getOrderByCodeAndPriceList(11367, priceList);
 
         Logger.LOGGER.info(order.getCode() + "  " + order.getName());
@@ -43,3 +52,4 @@ public class MainExe {
 
     }
 }
+*/
