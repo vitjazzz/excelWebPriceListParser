@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Set;
 
 /**
@@ -17,17 +20,14 @@ import java.util.Set;
 @Service
 @Transactional
 public class PriceListService {
-    /*@Autowired
-    private PriceListDAO priceListDAO;*/
-
     @Autowired
     private PriceListRepository priceListRepository;
 
     @Autowired
     private OrderRepository orderRepository;
 
-    /*@Autowired
-    private OrderDAO orderDAO;*/
+    @Autowired
+    private ExcelParser excelParser;
 
     @Transactional
     public void savePriceList(PriceList priceList){
@@ -45,5 +45,22 @@ public class PriceListService {
     @Transactional
     public PriceList getPriceListByDescription(String description){
         return priceListRepository.findPriceListByDescription(description);
+    }
+
+    public void parseExcelFile(File file, PriceList priceList){
+        //PriceList priceList = new PriceList(priceListDescription);
+        Set<Order> orders = excelParser.parseFile(file);
+        orders.stream().forEach(order -> order.setPriceList(priceList));
+        savePriceListAndOrders(priceList, orders);
+
+        deleteFile(file);
+    }
+
+    private void deleteFile(File file){
+        try {
+            Files.delete(file.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

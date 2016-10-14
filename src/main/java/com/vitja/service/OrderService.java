@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,8 +17,6 @@ import java.util.Set;
 @Service
 @Transactional
 public class OrderService {
-    /*@Autowired
-    private OrderDAO orderDAO;*/
 
     @Autowired
     private OrderRepository orderRepository;
@@ -38,5 +37,10 @@ public class OrderService {
     public Order getOrderByCodeAndPriceList(Integer code, PriceList priceList){
         Logger.LOGGER.info("Get order from database...");
         return orderRepository.findOrderByCodeAndPriceList(code, priceList);
+    }
+
+    @Transactional
+    public List<Order> getAllOrders(){
+        return (List<Order>) orderRepository.findAll();
     }
 }
