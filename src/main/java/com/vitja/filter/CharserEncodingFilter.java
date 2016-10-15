@@ -1,5 +1,7 @@
 package com.vitja.filter;
 
+import com.vitja.Logger;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
@@ -16,8 +18,12 @@ public class CharserEncodingFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        servletRequest.setCharacterEncoding("UTF-8");
-        filterChain.doFilter(servletRequest, servletResponse);
+        try{
+            servletRequest.setCharacterEncoding("UTF-8");
+            filterChain.doFilter(servletRequest, servletResponse);
+        } catch (Exception e){
+            Logger.LOGGER.warn("Incorrect request!");
+        }
     }
 
     @Override

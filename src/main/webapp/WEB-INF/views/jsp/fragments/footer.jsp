@@ -1,16 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Viktor
-  Date: 14.10.2016
-  Time: 17:35
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<div class="container">
+    <hr>
+    <footer class="centralize-text">
+        <p>&copy; Oriflame Incorporated 2016</p>
+    </footer>
+</div>
 
-</body>
-</html>
+<script type="text/javascript">
+    <%@include file="../../../../js/jquery.min.js"%>
+</script>
+<script type="text/javascript">
+    <%@include file="../../../../js/bootstrap.min.js"%>
+</script>
+

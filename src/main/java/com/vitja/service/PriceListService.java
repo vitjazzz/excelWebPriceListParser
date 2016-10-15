@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -45,6 +46,16 @@ public class PriceListService {
     @Transactional
     public PriceList getPriceListByDescription(String description){
         return priceListRepository.findPriceListByDescription(description);
+    }
+
+    @Transactional
+    public List<PriceList> getAllPriceLists(){
+        return (List<PriceList>) priceListRepository.findAll();
+    }
+
+    @Transactional
+    public void remove(Integer id){
+        priceListRepository.delete(id);
     }
 
     public void parseExcelFile(File file, PriceList priceList){

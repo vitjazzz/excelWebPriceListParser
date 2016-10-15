@@ -6,10 +6,7 @@ import com.vitja.service.PriceListService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -38,18 +35,36 @@ public class MainController implements ServletContextAware {
 
     @RequestMapping(value = "/")
     public ModelAndView getIndexPage(){
-        return new ModelAndView("index", "priceListModel", new PriceList("Price List 1"));
+        return new ModelAndView("index");
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/priceListsPage")
+    public ModelAndView getAddPriceListPage(){
+        ModelAndView modelAndView = new ModelAndView("priceListsPage");
+        modelAndView.addObject("priceListModel", new PriceList());
+        modelAndView.addObject("allPriceLists", priceListService.getAllPriceLists());
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/addPriceList", method = RequestMethod.POST)
     public String parseExcelFile(@ModelAttribute("priceListModel") PriceList priceList,
                                  @RequestParam(value = "excelFile", name = "excelFile", required = false) MultipartFile multipartFile){
-        /*try {
-            priceListService.parseExcelFile(convertToFile(multipartFile), priceList);
+        try {
+            if(multipartFile != null){
+                priceListService.parseExcelFile(convertToFile(multipartFile), priceList);
+            }
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
-        return "redirect:/";
+        }
+
+        return "redirect:/priceListsPage";
+    }
+
+    @RequestMapping(value = "/removePriceList/{id}", method = RequestMethod.GET)
+    public String removePriceList(@PathVariable("id") Integer id){
+        priceListService.remove(id);
+        return "redirect:/priceListsPage";
     }
 
     private File convertToFile(MultipartFile multipartFile) throws IOException {
