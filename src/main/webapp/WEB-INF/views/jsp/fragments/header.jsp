@@ -11,11 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <style type="text/css">
-        <%@include file="../../../../css/bootstrap.min.css" %>
         <%@include file="../../../../css/bootstrap-theme.min.css" %>
         <%@include file="../../../../css/style.css"%>
-        <%@include file="../../../../css/font-awesome.min.css"%>
     </style>
 
     <title>Title</title>

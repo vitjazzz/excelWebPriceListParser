@@ -50,12 +50,12 @@ public class MainController implements ServletContextAware {
     @RequestMapping(value = "/addPriceList", method = RequestMethod.POST)
     public String parseExcelFile(@ModelAttribute("priceListModel") PriceList priceList,
                                  @RequestParam(value = "excelFile", name = "excelFile", required = false) MultipartFile multipartFile){
-        try {
-            if(multipartFile != null){
+        if(multipartFile != null) {
+            try {
                 priceListService.parseExcelFile(convertToFile(multipartFile), priceList);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
         return "redirect:/priceListsPage";
