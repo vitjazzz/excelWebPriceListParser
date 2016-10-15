@@ -2,11 +2,9 @@
     text-align:center;
 }
 
-/*@font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url("/fonts/glyphicons-halflings-regular.eot");
-    src: url('/fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../../../../fonts/glyphicons-halflings-regular.woff') format('woff'), url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-}*/
+body {
+    font-size: 20px;
+}
 
 .top-margin{
     margin-top:15px;
@@ -14,6 +12,10 @@
 
 .form-container{
     padding-top:30px;
+}
+
+.add-left-margin{
+    margin-left: 10px;
 }
 
 .dropdown-submenu {

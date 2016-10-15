@@ -18,12 +18,8 @@ public class CharserEncodingFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        try{
-            servletRequest.setCharacterEncoding("UTF-8");
-            filterChain.doFilter(servletRequest, servletResponse);
-        } catch (Exception e){
-            Logger.LOGGER.warn("Incorrect request!");
-        }
+        servletRequest.setCharacterEncoding("UTF-8");
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override

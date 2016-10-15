@@ -72,6 +72,15 @@ public class PriceList {
     }
 
     @Override
+    public String toString() {
+        return "PriceList{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", orders=" + orders +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 

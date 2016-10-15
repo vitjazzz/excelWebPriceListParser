@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by Viktor on 11.10.2016.
  */
-@Repository
 public interface OrderRepository extends CrudRepository<Order, Integer> {
     Order findOrderByCodeAndPriceList(Integer code, PriceList priceList);
 }

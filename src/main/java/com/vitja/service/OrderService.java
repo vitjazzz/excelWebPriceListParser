@@ -2,7 +2,9 @@ package com.vitja.service;
 
 import com.vitja.Logger;
 import com.vitja.model.Order;
+import com.vitja.model.OrderAmount;
 import com.vitja.model.PriceList;
+import com.vitja.repository.OrderAmountRepository;
 import com.vitja.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,8 @@ import java.util.Set;
 @Service
 @Transactional
 public class OrderService {
+    @Autowired
+    private OrderAmountRepository orderAmountRepository;
 
     @Autowired
     private OrderRepository orderRepository;
@@ -37,10 +41,5 @@ public class OrderService {
     public Order getOrderByCodeAndPriceList(Integer code, PriceList priceList){
         Logger.LOGGER.info("Get order from database...");
         return orderRepository.findOrderByCodeAndPriceList(code, priceList);
-    }
-
-    @Transactional
-    public List<Order> getAllOrders(){
-        return (List<Order>) orderRepository.findAll();
     }
 }

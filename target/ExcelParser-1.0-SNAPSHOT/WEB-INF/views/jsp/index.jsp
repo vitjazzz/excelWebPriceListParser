@@ -15,8 +15,55 @@
 <html>
 <jsp:include page="fragments/header.jsp"/>
 
+<div class="form-container">
+    <form:form action="countOrderPrice" method="post" modelAttribute="orderAmountModel"
+               class="form-inline centralize-text">
+        <div class="form-group">
+            <label for="code" >Код товару</label>
+            <form:input path="order.code" type="number" id="code" class="form-control" required="required"/>
+            <c:if test="${not empty orderErrorMessage}"><span class="help-block error">${orderErrorMessage}</span></c:if>
+        </div>
+        <div class="form-group add-left-margin">
+            <label for="amount" >Кількість товару</label>
+            <form:input path="amount" type="number" id="amount" class="form-control" required="required"/>
+        </div>
+        <div class="form-group add-left-margin">
+            <label >Прайс-лист</label>
+            <form:select path="order.priceList.description" class="form-control" required="required" items="${allPriceListDescriptions}"/>
+        </div>
+        <div class="form-group add-left-margin">
+            <button type="submit" class="btn btn-primary">Добавити</button>
+        </div>
+    </form:form>
+</div>
 
-
+<div class="container">
+    <h2>Список товарів</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Код</th>
+            <th>Назва товару</th>
+            <th>Кількість</th>
+            <th>ДЦ</th>
+            <th>ПЦ</th>
+            <th>Видалення</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="orderAmount" items="${allOrderAmounts}">
+            <tr>
+                <td>${orderAmount.order.code}</td>
+                <td>${orderAmount.order.name}</td>
+                <td>${orderAmount.amount}</td>
+                <td>${orderAmount.order.distributionPrice * orderAmount.amount}</td>
+                <td>${orderAmount.order.purchasingPrice * orderAmount.amount}</td>
+                <td class="centralize-text"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 
 <jsp:include page="fragments/footer.jsp"/>
 

@@ -19,10 +19,10 @@
                class="form-inline centralize-text">
         <div class="form-group">
             <label for="description" >Опис прайс-листу</label>
-            <form:input path="description" type="text" id="description" class="form-control" placeholder="Опис прайс листу"></form:input>
+            <form:input path="description" type="text" id="description" class="form-control" placeholder="Опис прайс листу" required="required"/>
         </div>
         <div class="form-group">
-            <label class="btn btn-default btn-file"><span class="glyphicon glyphicon-upload"></span> Вибрати прайс-лист<input name="excelFile" type="file" value="excelFile" id="excelFile" style="display: none;">
+            <label class="btn btn-default btn-file"><span class="glyphicon glyphicon-upload"></span> Вибрати прайс-лист<input name="excelFile" type="file" value="excelFile" id="excelFile" style="display: none;" required>
             </label>
         </div>
         <div class="form-group">
@@ -33,7 +33,7 @@
 
 <div class="container">
     <h2>Список прайс-листів</h2>
-    <table class="table table-striped table-hover">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Назва прайс-листу</th>
