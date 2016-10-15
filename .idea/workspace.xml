@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f71a152c-3db6-48c2-a548-754db3efad04" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/fonts/glyphicons-halflings-regular.woff2" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/WEB-INF/classes/com/vitja/controller/MainController.class" afterPath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/WEB-INF/classes/com/vitja/controller/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/WEB-INF/classes/com/vitja/model/PriceList.class" afterPath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/WEB-INF/classes/com/vitja/model/PriceList.class" />
@@ -20,17 +14,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/vitja/repository/PriceListRepository.class" afterPath="$PROJECT_DIR$/target/classes/com/vitja/repository/PriceListRepository.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/vitja/service/OrderService.class" afterPath="$PROJECT_DIR$/target/classes/com/vitja/service/OrderService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/filter/CharserEncodingFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/filter/CharserEncodingFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/model/OrderAmount.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/model/OrderAmount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/model/PriceList.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/model/PriceList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/repository/OrderRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/repository/OrderRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/repository/PriceListRepository.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/repository/PriceListRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/vitja/service/OrderService.java" afterPath="$PROJECT_DIR$/src/main/java/com/vitja/service/OrderService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/fragments/header.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/fragments/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/priceListsPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/priceListsPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/WEB-INF/views/jsp/index.jsp" afterPath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/WEB-INF/views/jsp/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/css/style.css" afterPath="$PROJECT_DIR$/target/ExcelParser-1.0-SNAPSHOT/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
@@ -160,16 +143,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NoSuchOrderException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/vitja/exception/NoSuchOrderException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CharserEncodingFilter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/vitja/filter/CharserEncodingFilter.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -180,11 +153,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09981167">
+            <state vertical-scroll-proportion="-1.7096775">
               <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderAmountRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/vitja/repository/OrderAmountRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35231316">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1379,16 +1362,23 @@
       <workItem from="1476301400470" duration="23000" />
       <workItem from="1476301494977" duration="4144000" />
       <workItem from="1476434891871" duration="18220000" />
-      <workItem from="1476522954802" duration="28589000" />
+      <workItem from="1476522954802" duration="28603000" />
     </task>
+    <task id="LOCAL-00001" summary="Added OrderAmount list on the index.jsp">
+      <created>1476574369489</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1476574369489</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107618000" />
+    <option name="totallyTimeSpent" value="107632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1412,7 +1402,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.50680274" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49492672" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28456593" sideWeight="0.4931973" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28456593" sideWeight="0.4931973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.50680274" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1786,14 +1776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/vitja/repository/OrderAmountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36131388">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/vitja/repository/PriceListRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24087591">
@@ -1943,8 +1925,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/jsp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09981167">
+        <state vertical-scroll-proportion="-1.7096775">
           <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/vitja/repository/OrderAmountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35231316">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
