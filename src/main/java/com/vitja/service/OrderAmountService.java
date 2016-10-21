@@ -29,4 +29,10 @@ public class OrderAmountService {
         Logger.LOGGER.info("Get all objects from table OrderAmount.");
         return (List<OrderAmount>) orderAmountRepository.findAll();
     }
+
+    @Transactional
+    public void removeOrderAmountById(Integer id){
+        Logger.LOGGER.info("Remove OrderAmount...");
+        orderAmountRepository.delete(id);
+    }
 }

@@ -15,13 +15,20 @@
 <html>
 <jsp:include page="fragments/header.jsp"/>
 
+<form:form modelAttribute="customerName">
+
+<div class="form-group">
+    <label>Ім'я замовника</label>
+    <form:input path="name" type="text" class="form-control" name="customerName" id="customerName"
+           placeholder="Для кого призначене замовлення"/>
+</div>
+
 <div class="form-container">
     <form:form action="countOrderPrice" method="post" modelAttribute="orderAmountModel"
                class="form-inline centralize-text">
         <div class="form-group">
             <label for="code" >Код товару</label>
             <form:input path="order.code" type="number" id="code" class="form-control" required="required"/>
-            <c:if test="${not empty orderErrorMessage}"><span class="help-block error">${orderErrorMessage}</span></c:if>
         </div>
         <div class="form-group add-left-margin">
             <label for="amount" >Кількість товару</label>
@@ -35,6 +42,11 @@
             <button type="submit" class="btn btn-primary">Добавити</button>
         </div>
     </form:form>
+    <c:if test="${not empty orderErrorMessage}">
+        <div class="alert alert-danger">
+            ${orderErrorMessage}
+        </div>
+    </c:if>
 </div>
 
 <div class="container">
@@ -47,6 +59,7 @@
             <th>Кількість</th>
             <th>ДЦ</th>
             <th>ПЦ</th>
+            <th>Прайс-лист</th>
             <th>Видалення</th>
         </tr>
         </thead>
@@ -58,13 +71,15 @@
                 <td>${orderAmount.amount}</td>
                 <td>${orderAmount.order.distributionPrice * orderAmount.amount}</td>
                 <td>${orderAmount.order.purchasingPrice * orderAmount.amount}</td>
-                <td class="centralize-text"><a href="#"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <td>${orderAmount.order.priceList.description}</td>
+                <td class="centralize-text"><a href="<c:url value="/removeOrderAmount/${orderAmount.id}"/>"><span class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
 
+</form:form>
 <jsp:include page="fragments/footer.jsp"/>
 
 </body>

@@ -1,9 +1,26 @@
+@media (min-width: 768px){
+    .navbar-nav{
+        float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+    }
+}
+
 .centralize-text{
     text-align:center;
 }
 
 body {
     font-size: 20px;
+}
+
+.navbar>.container-fluid{
+    font-size:25px;
+}
+
+.navbar-brand{
+    font-size:25px;
 }
 
 .top-margin{

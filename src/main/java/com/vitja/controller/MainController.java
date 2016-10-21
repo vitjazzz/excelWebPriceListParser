@@ -1,6 +1,7 @@
 package com.vitja.controller;
 
 import com.vitja.exception.NoSuchOrderException;
+import com.vitja.model.CustomerName;
 import com.vitja.model.Order;
 import com.vitja.model.OrderAmount;
 import com.vitja.model.PriceList;
@@ -11,10 +12,13 @@ import com.vitja.service.PriceListService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -45,9 +49,13 @@ public class MainController implements ServletContextAware {
     }
 
     @RequestMapping(value = "/")
-    public ModelAndView getIndexPage(HttpServletRequest request){
-        ModelAndView modelAndView = new ModelAndView();
+    public ModelAndView getIndexPage(Model model, ModelAndView modelAndView){
+        if(priceListService.getAllPriceLists().isEmpty()){
+            return new ModelAndView("priceListsPage");
+        }
+
         modelAndView.setViewName("index");
+
         Order order = new Order();
         order.setPriceList(new PriceList());
         modelAndView.addObject("orderAmountModel", new OrderAmount(1, order));
@@ -58,27 +66,37 @@ public class MainController implements ServletContextAware {
 
         modelAndView.addObject("allOrderAmounts", orderAmountService.getAllOrderAmounts());
 
+        String errorMessage = (String) model.asMap().get("orderErrorMessage");
+        modelAndView.addObject("orderErrorMessage", errorMessage);
+
+        modelAndView.addObject("customerName", new CustomerName());
+
         return modelAndView;
     }
 
     @RequestMapping(value = "/countOrderPrice", method = RequestMethod.POST)
-    public ModelAndView countOrderPrice(@ModelAttribute("orderAmountModel") OrderAmount orderAmount){
+    public ModelAndView countOrderPrice(@ModelAttribute("orderAmountModel") OrderAmount orderAmount,
+                                        RedirectAttributes redirectAttributes,
+                                        ModelAndView modelAndView,
+                                        @ModelAttribute("customerName") CustomerName customerName){
         PriceList priceList = priceListService.getPriceListByDescription(orderAmount.getOrder().getPriceList().getDescription());
 
         Order order = orderService.getOrderByCodeAndPriceList(orderAmount.getOrder().getCode(), priceList);
         if(order == null){
-            throw new NoSuchOrderException("Товару з заданим кодом і прайс-листом не існує!");
+            redirectAttributes.addFlashAttribute("orderErrorMessage", "Товару з заданим кодом і прайс-листом не існує!");
+            return new ModelAndView("redirect:/");
         }
 
         orderAmount.setOrder(order);
         orderAmountService.saveOrderAmount(orderAmount);
 
-        return new ModelAndView("redirect:/");
+        modelAndView.setViewName("redirect:/");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/priceListsPage")
-    public ModelAndView getAddPriceListPage(){
-        ModelAndView modelAndView = new ModelAndView("priceListsPage");
+    public ModelAndView getAddPriceListPage(ModelAndView modelAndView){
+        modelAndView.setViewName("priceListsPage");
         modelAndView.addObject("priceListModel", new PriceList());
         modelAndView.addObject("allPriceLists", priceListService.getAllPriceLists());
 
@@ -86,8 +104,9 @@ public class MainController implements ServletContextAware {
     }
 
     @RequestMapping(value = "/addPriceList", method = RequestMethod.POST)
-    public String parseExcelFile(@ModelAttribute("priceListModel") PriceList priceList,
-                                 @RequestParam(value = "excelFile", name = "excelFile", required = false) MultipartFile multipartFile){
+    public ModelAndView parseExcelFile(@ModelAttribute("priceListModel") PriceList priceList,
+                                 @RequestParam(value = "excelFile", name = "excelFile", required = false) MultipartFile multipartFile,
+                                       ModelAndView modelAndView){
         if(multipartFile != null) {
             try {
                 priceListService.parseExcelFile(convertToFile(multipartFile), priceList);
@@ -95,20 +114,22 @@ public class MainController implements ServletContextAware {
                 e.printStackTrace();
             }
         }
-
-        return "redirect:/priceListsPage";
+        modelAndView.setViewName("redirect:/priceListsPage");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/removePriceList/{id}", method = RequestMethod.GET)
-    public String removePriceList(@PathVariable("id") Integer id){
+    public ModelAndView removePriceList(@PathVariable("id") Integer id, ModelAndView modelAndView){
         priceListService.remove(id);
-        return "redirect:/priceListsPage";
+        modelAndView.setViewName("redirect:/priceListsPage");
+
+        return modelAndView;
     }
 
-    @ExceptionHandler(NoSuchOrderException.class)
-    public ModelAndView handleNoSuchOrderException(HttpServletRequest request, Exception ex){
-        ModelAndView modelAndView = new ModelAndView("redirect:/");
-        modelAndView.addObject("orderErrorMessage", ex.getMessage());
+    @RequestMapping(value = "/removeOrderAmount/{id}", method = RequestMethod.GET)
+    public ModelAndView removeOrderAmount(@PathVariable("id") Integer id, ModelAndView modelAndView){
+        orderAmountService.removeOrderAmountById(id);
+        modelAndView.setViewName("redirect:/");
 
         return modelAndView;
     }
