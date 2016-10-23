@@ -15,12 +15,10 @@
 <html>
 <jsp:include page="fragments/header.jsp"/>
 
-<form:form modelAttribute="customerName">
-
-<div class="form-group">
+<div class="form-group" style="width: 60%">
     <label>Ім'я замовника</label>
-    <form:input path="name" type="text" class="form-control" name="customerName" id="customerName"
-           placeholder="Для кого призначене замовлення"/>
+    <input type="text" class="form-control" name="customerName" id="customerName"
+           placeholder="Для кого призначене замовлення">
 </div>
 
 <div class="form-container">
@@ -79,7 +77,6 @@
     </table>
 </div>
 
-</form:form>
 <jsp:include page="fragments/footer.jsp"/>
 
 </body>

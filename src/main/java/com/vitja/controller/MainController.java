@@ -51,7 +51,7 @@ public class MainController implements ServletContextAware {
     @RequestMapping(value = "/")
     public ModelAndView getIndexPage(Model model, ModelAndView modelAndView){
         if(priceListService.getAllPriceLists().isEmpty()){
-            return new ModelAndView("priceListsPage");
+            return new ModelAndView("redirect:/priceListsPage");
         }
 
         modelAndView.setViewName("index");

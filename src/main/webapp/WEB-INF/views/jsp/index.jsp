@@ -15,8 +15,7 @@
 <html>
 <jsp:include page="fragments/header.jsp"/>
 
-<div class="form-group" style="width: 60%">
-    <label>Ім'я замовника</label>
+<div class="form-group centralize-text" style="width: 60%">
     <input type="text" class="form-control" name="customerName" id="customerName"
            placeholder="Для кого призначене замовлення">
 </div>
