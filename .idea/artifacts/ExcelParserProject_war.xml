@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ExcelParserProject:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ExcelParser-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="ExcelParserProject:war exploded" />
-    </root>
-  </artifact>
-</component>
